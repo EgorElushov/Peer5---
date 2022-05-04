@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "40d05f1a-e748-46ff-bb5c-3047341c8418": {
+      "ProjectGuid": "40d05f1a-e748-46ff-bb5c-3047341c8418",
+      "DisplayName": "peer",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,56 @@
+﻿<Window x:Class="peer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:peer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600
+        " Width="800">
+    <Grid>
+        
+        <Button Content="Нарисовать" HorizontalAlignment="Left" Margin="654,52,0,0" VerticalAlignment="Top" Height="51" Width="116" Click="drawButton_Click"/>
+        <RadioButton x:Name="fractalTreeRB" Content="Фрактальное дерево" HorizontalAlignment="Left" Margin="38,40,0,0" VerticalAlignment="Top" GroupName="fractalType" Checked="fractalTreeRB_Checked" Unchecked="fractalTreeRB_Unchecked"/>
+        <RadioButton x:Name="kochSnowflakeRB" Content="Кривая Коха" HorizontalAlignment="Left" Margin="38,55,0,0" VerticalAlignment="Top" GroupName="fractalType" Checked="kochSnowflakeRB_Checked"/>
+        <RadioButton x:Name="sierpinskiCarpetRB" Content="Ковер Сперинкого" HorizontalAlignment="Left" Margin="38,71,0,0" VerticalAlignment="Top" GroupName="fractalType" Checked="sierpinskiCarpetRB_Checked"/>
+        <RadioButton x:Name="sierpinskiTriangleRB" Content="Треугольник Сперинского" HorizontalAlignment="Left" Margin="38,86,0,0" VerticalAlignment="Top" GroupName="fractalType" Checked="sierpinskiTriangleRB_Checked"/>
+        <RadioButton x:Name="cantorSetRB" Content="Множество Кантора" HorizontalAlignment="Left" Margin="38,101,0,0" VerticalAlignment="Top" GroupName="fractalType" Checked="cantorSetRB_Checked" Unchecked="cantorSetRB_Unchecked"/>
+        <Slider x:Name="recurtionDepthSlider" HorizontalAlignment="Left" Margin="38,158,0,0" VerticalAlignment="Top" Width="120" Minimum="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,140,0,0" TextWrapping="Wrap" Text="Глубина рекурсии" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="minRecurtionDepth" HorizontalAlignment="Left" Margin="38,181,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.585,0.139"/>
+        <TextBlock x:Name="maxRecurtionDepth" HorizontalAlignment="Left" Margin="134,181,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" RenderTransformOrigin="1.404,0.298" Height="26" Width="24"/>
+        <TextBox x:Name="segmentLengthTB" HorizontalAlignment="Left" Margin="38,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,202,0,0" TextWrapping="Wrap" Text="Длина начального отрезка" VerticalAlignment="Top"/>
+        <GroupBox x:Name="fractalTree" Header="Информация о фрактальном дереве" Margin="10,246,518,187" Visibility="Hidden">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Угол наклона левого отрезка:" Height="19" Width="130" Margin="0,10,0,99"/>
+                <TextBox x:Name="leftAngleTB" HorizontalAlignment="Left" Margin="135,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Угол наклона правого отрезка:" Height="19" Width="130" Margin="0,47,0,62"/>
+                <TextBox x:Name="rightAngleTB" HorizontalAlignment="Left" Margin="135,46,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,77,0,0" TextWrapping="Wrap" Text="Соотношение сторон:" VerticalAlignment="Top"/>
+                <TextBox x:Name="coefficientTB" HorizontalAlignment="Left" Margin="135,77,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="cantor" Header="Информация о множестве кантора" Margin="10,246,518,187" Visibility="Hidden">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Высота отрезка:" Height="19" Width="130" Margin="0,10,0,99"/>
+                <TextBox x:Name="cantorHeightTB" HorizontalAlignment="Left" Margin="135,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Расстояние между отрезками:" Height="19" Width="130" Margin="5,45,0,64"/>
+                <TextBox x:Name="cantorDistanceTB" HorizontalAlignment="Left" Margin="135,46,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+
+            </Grid>
+        </GroupBox>
+        <TextBox x:Name="bBeginTB" HorizontalAlignment="Left" Margin="247,72,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="rEndTB" HorizontalAlignment="Left" Margin="397,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="rBeginTB" HorizontalAlignment="Left" Margin="247,37,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="gBeginTB" HorizontalAlignment="Left" Margin="247,54,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="gEndTB" HorizontalAlignment="Left" Margin="397,73,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="bEndTB" HorizontalAlignment="Left" Margin="397,38,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <Grid Margin="227,140,0,0">
+            <Canvas x:Name="fractalPlace" Height="444" Width="573"/>
+        </Grid>
+
+
+    </Grid>
+</Window>
